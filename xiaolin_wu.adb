@@ -219,7 +219,10 @@ package body Xiaolin_Wu is
       P1       : Point_2D;
       Max_X    : Pixel_Coordinate;
       Max_Y    : Pixel_Coordinate;
-      Callback : not null Plot_Callback)
+      Callback : not null access procedure
+                   (X        : Pixel_Coordinate;
+                    Y        : Pixel_Coordinate;
+                    Coverage : Intensity))
    is
       procedure Emit_Pixel (X : Coordinate; Y : Coordinate; W : Real) is
       begin
