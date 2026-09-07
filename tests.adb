@@ -105,8 +105,8 @@ begin
    Put_Line ("TEST 4 — Horizontal Line");
    Clear_Grid (Buf_10x10);
    Draw_Line (Buf_10x10, (X => 1.0, Y => 2.0), (X => 5.0, Y => 2.0));
-   Check ("4.1 Start and end of horizontal line fully covered",
-          Buf_10x10 (1, 2) = 1.0 and then Buf_10x10 (5, 2) = 1.0);
+   Check ("4.1 Start and end of horizontal line get half coverage (Wu endpoints)",
+          Buf_10x10 (1, 2) = 0.5 and then Buf_10x10 (5, 2) = 0.5);
    Check ("4.2 Intermediate points on horizontal line fully covered",
           Buf_10x10 (2, 2) = 1.0 and then Buf_10x10 (3, 2) = 1.0 and then Buf_10x10 (4, 2) = 1.0);
    Check ("4.3 Adjacent row has zero intensity for integer horizontal line",
@@ -118,8 +118,8 @@ begin
    Put_Line ("TEST 5 — Vertical Line");
    Clear_Grid (Buf_10x10);
    Draw_Line (Buf_10x10, (X => 4.0, Y => 2.0), (X => 4.0, Y => 7.0));
-   Check ("5.1 Vertical line endpoints drawn",
-          Buf_10x10 (4, 2) = 1.0 and then Buf_10x10 (4, 7) = 1.0);
+   Check ("5.1 Vertical line endpoints get half coverage",
+          Buf_10x10 (4, 2) = 0.5 and then Buf_10x10 (4, 7) = 0.5);
    Check ("5.2 Vertical line intermediates drawn",
           Buf_10x10 (4, 3) = 1.0 and then Buf_10x10 (4, 5) = 1.0);
    Check ("5.3 Adjacent columns remain zero",
@@ -131,12 +131,12 @@ begin
    Put_Line ("TEST 6 — Diagonal Line");
    Clear_Grid (Buf_10x10);
    Draw_Line (Buf_10x10, (X => 1.0, Y => 1.0), (X => 6.0, Y => 6.0));
-   Check ("6.1 Diagonal start point covered",
-          Buf_10x10 (1, 1) = 1.0);
+   Check ("6.1 Diagonal start point gets half coverage",
+          Buf_10x10 (1, 1) = 0.5);
    Check ("6.2 Diagonal midpoint covered",
           Buf_10x10 (3, 3) = 1.0 and then Buf_10x10 (4, 4) = 1.0);
-   Check ("6.3 Diagonal end point covered",
-          Buf_10x10 (6, 6) = 1.0);
+   Check ("6.3 Diagonal end point gets half coverage",
+          Buf_10x10 (6, 6) = 0.5);
 
    ----------------------------------------------------------------------------
    -- TEST 7 — Antialiasing Energy Conservation Invariant
@@ -216,8 +216,9 @@ begin
              Col_10x10 (4, 1).Red > 200);
       Check ("10.2 Untouched RGBA line background intact",
              Col_10x10 (4, 5).Red = 10 and then Col_10x10 (4, 5).Green = 10);
-      Check ("10.3 Endpoint has correct color",
-             Col_10x10 (1, 1).Red > 200 and then Col_10x10 (8, 1).Red > 200);
+      Check ("10.3 Endpoint blended with half weight (approx 130)",
+             Col_10x10 (1, 1).Red > 120 and then Col_10x10 (1, 1).Red < 140
+             and then Col_10x10 (8, 1).Red > 120 and then Col_10x10 (8, 1).Red < 140);
    end;
 
    ----------------------------------------------------------------------------
