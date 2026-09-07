@@ -144,7 +144,7 @@ package body Xiaolin_Wu is
          X_End_1 : constant Real := Real'Rounding (X0);
          Y_End_1 : constant Real := Y0 + Gradient * (X_End_1 - X0);
          X_Gap_1 : constant Real := Reverse_Fractional_Part (X0 + 0.5);
-         PX_1    : constant Coordinate := Coordinate (X_End_1);
+         PX_1    : constant Coordinate := Coordinate (Real'Floor (X_End_1));
          PY_1    : constant Coordinate := Floor_Coord (Y_End_1);
 
          Inter_Y : Real;
@@ -167,8 +167,8 @@ package body Xiaolin_Wu is
          -- Second endpoint
          X_End_2 := Real'Rounding (X1);
          Y_End_2 := Y1 + Gradient * (X_End_2 - X1);
-         X_Gap_2 := Fractional_Part (X1 + 0.5);
-         PX_2    := Coordinate (X_End_2);
+         X_Gap_2 := Reverse_Fractional_Part (X1 + 0.5);
+         PX_2    := Coordinate (Real'Floor (X_End_2));
          PY_2    := Floor_Coord (Y_End_2);
 
          if Steep then
@@ -266,7 +266,7 @@ package body Xiaolin_Wu is
          X_End_1 : constant Real := Real'Rounding (X0);
          Y_End_1 : constant Real := Y0 + Gradient * (X_End_1 - X0);
          X_Gap_1 : constant Real := Reverse_Fractional_Part (X0 + 0.5);
-         PX_1    : constant Coordinate := Coordinate (X_End_1);
+         PX_1    : constant Coordinate := Coordinate (Real'Floor (X_End_1));
          PY_1    : constant Coordinate := Floor_Coord (Y_End_1);
 
          Inter_Y : Real;
@@ -288,8 +288,8 @@ package body Xiaolin_Wu is
 
          X_End_2 := Real'Rounding (X1);
          Y_End_2 := Y1 + Gradient * (X_End_2 - X1);
-         X_Gap_2 := Fractional_Part (X1 + 0.5);
-         PX_2    := Coordinate (X_End_2);
+         X_Gap_2 := Reverse_Fractional_Part (X1 + 0.5);
+         PX_2    := Coordinate (Real'Floor (X_End_2));
          PY_2    := Floor_Coord (Y_End_2);
 
          if Steep then
@@ -366,7 +366,7 @@ package body Xiaolin_Wu is
          X_End_1 : constant Real := Real'Rounding (X0);
          Y_End_1 : constant Real := Y0 + Gradient * (X_End_1 - X0);
          X_Gap_1 : constant Real := Reverse_Fractional_Part (X0 + 0.5);
-         PX_1    : constant Coordinate := Coordinate (X_End_1);
+         PX_1    : constant Coordinate := Coordinate (Real'Floor (X_End_1));
          PY_1    : constant Coordinate := Floor_Coord (Y_End_1);
 
          Inter_Y : Real;
@@ -388,8 +388,8 @@ package body Xiaolin_Wu is
 
          X_End_2 := Real'Rounding (X1);
          Y_End_2 := Y1 + Gradient * (X_End_2 - X1);
-         X_Gap_2 := Fractional_Part (X1 + 0.5);
-         PX_2    := Coordinate (X_End_2);
+         X_Gap_2 := Reverse_Fractional_Part (X1 + 0.5);
+         PX_2    := Coordinate (Real'Floor (X_End_2));
          PY_2    := Floor_Coord (Y_End_2);
 
          if Steep then
@@ -499,7 +499,7 @@ package body Xiaolin_Wu is
          X_End_1 : constant Real := Real'Rounding (X0);
          Y_End_1 : constant Real := Y0 + Gradient * (X_End_1 - X0);
          X_Gap_1 : constant Real := Reverse_Fractional_Part (X0 + 0.5);
-         PX_1    : constant Coordinate := Coordinate (X_End_1);
+         PX_1    : constant Coordinate := Coordinate (Real'Floor (X_End_1));
          PY_1    : constant Coordinate := Floor_Coord (Y_End_1);
 
          Inter_Y : Real;
@@ -521,8 +521,8 @@ package body Xiaolin_Wu is
 
          X_End_2 := Real'Rounding (X1);
          Y_End_2 := Y1 + Gradient * (X_End_2 - X1);
-         X_Gap_2 := Fractional_Part (X1 + 0.5);
-         PX_2    := Coordinate (X_End_2);
+         X_Gap_2 := Reverse_Fractional_Part (X1 + 0.5);
+         PX_2    := Coordinate (Real'Floor (X_End_2));
          PY_2    := Floor_Coord (Y_End_2);
 
          if Steep then
