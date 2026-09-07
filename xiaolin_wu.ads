@@ -41,7 +41,8 @@ package Xiaolin_Wu is
    type Color_Grid is
      array (Pixel_Coordinate range <>, Pixel_Coordinate range <>) of RGBA_Color;
 
-   -- Callback profile for streaming rasterizer
+   -- Callback profile for streaming rasterizer (anonymous access-to-subprogram
+   -- to allow passing locally defined subprograms without accessibility violations)
    type Plot_Callback is access procedure
      (X         : Pixel_Coordinate;
       Y         : Pixel_Coordinate;
@@ -95,7 +96,10 @@ package Xiaolin_Wu is
       P1       : Point_2D;
       Max_X    : Pixel_Coordinate;
       Max_Y    : Pixel_Coordinate;
-      Callback : not null Plot_Callback)
+      Callback : not null access procedure
+                   (X        : Pixel_Coordinate;
+                    Y        : Pixel_Coordinate;
+                    Coverage : Intensity))
    with
      Global => null;
 
