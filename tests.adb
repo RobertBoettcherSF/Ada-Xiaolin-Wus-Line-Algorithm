@@ -51,9 +51,9 @@ procedure Tests is
       Callback_Weight_Sum  := Callback_Weight_Sum + Real (Coverage);
    end Counting_Callback;
 
-   Buf_10x10 : Intensity_Grid (0 .. 9, 0 .. 9) := (others => (others => 0.0));
+   Buf_10x10 : Intensity_Grid (0 .. 9, 0 .. 9) := [others => [others => 0.0]];
    Col_10x10 : Color_Grid (0 .. 9, 0 .. 9) :=
-     (others => (others => (Red => 0, Green => 0, Blue => 0, Alpha => 255)));
+     [others => [others => (Red => 0, Green => 0, Blue => 0, Alpha => 255)]];
 
 begin
    ----------------------------------------------------------------------------
@@ -162,8 +162,8 @@ begin
    ----------------------------------------------------------------------------
    Put_Line ("TEST 8 — Direction Invariance");
    declare
-      Buf_Forward  : Intensity_Grid (0 .. 9, 0 .. 9) := (others => (others => 0.0));
-      Buf_Backward : Intensity_Grid (0 .. 9, 0 .. 9) := (others => (others => 0.0));
+      Buf_Forward  : Intensity_Grid (0 .. 9, 0 .. 9) := [others => [others => 0.0]];
+      Buf_Backward : Intensity_Grid (0 .. 9, 0 .. 9) := [others => [others => 0.0]];
       Identical : Boolean := True;
       P_A : constant Point_2D := (X => 1.2, Y => 2.7);
       P_B : constant Point_2D := (X => 7.8, Y => 5.3);
